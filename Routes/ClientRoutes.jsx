@@ -20,7 +20,7 @@ const ClientRoutes = () => {
           path="/Creators_Page"
           element={
             <Page_Grid>
-              <Creators_Page />
+              {/* <Creators_Page /> */}
             </Page_Grid>
           }
         />
@@ -28,7 +28,7 @@ const ClientRoutes = () => {
           path="/Profile_Page"
           element={
             <Page_Grid>
-              <Profile_Page />
+              {/* <Profile_Page /> */}
             </Page_Grid>
           }
         />
@@ -36,7 +36,7 @@ const ClientRoutes = () => {
           path="/Guest_Page"
           element={
             <Page_Grid>
-              <Guest_Page />
+              {/* <Guest_Page /> */}
             </Page_Grid>
           }
         />
@@ -44,7 +44,7 @@ const ClientRoutes = () => {
           path="/User_Page"
           element={
             <Page_Grid>
-              <User_Page />
+              {/* <User_Page /> */}
             </Page_Grid>
           }
         />

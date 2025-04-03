@@ -24,4 +24,13 @@ dist-ssr
 *.sw?
 
 auto_commit.ps1
-bkupComp.ps1
+
+#Files & Folders from the CsbR app that won't be updated  
+/Molecules/Gamer_Tag/
+/Atom_Data/DD_Game_Options.json
+/Atom_Data/DD_System_Options.json
+/src/Pages/
+/src/Routes/
+/src/assets/
+
+

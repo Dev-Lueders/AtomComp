@@ -13,7 +13,7 @@ const AuthRoutes = () => {
         path="/Login_Page"
         element={
           <Page_Grid>
-            <Login_Page />
+            {/* <Login_Page /> */}
           </Page_Grid>
         }
       />
