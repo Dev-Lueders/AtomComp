@@ -61,11 +61,11 @@ const Page_Grid = ({
         if (gridPosition && gridPosition.gridColumn && gridPosition.gridRow) {
             adjustPosition(gridPosition); // Adjust if collision detected
         }
-    }, [gridPosition]); // Re-run whenever gridPosition changes
+    }, [gridPosition, adjustPosition]); // Re-run whenever gridPosition changes
 
     if (!isVisible) return null; // Prevent unnecessary renders
     console.log("Rendering Page_Grid with props:", isVisible, opacity, gridPosition, passProps); // Debugging line
-}   
+   
   return (
     <div
       className="grid-page"

@@ -72,7 +72,7 @@ const generateUniqueClassName = ({
 
 // ModularWrapper: Wraps a component, validates its props, and applies grid styling.
 // eslint-disable-next-line react/display-name
-const ModularWrapper = React.memo(
+const Modular_Wrapper = React.memo(
   ({
     children,
     isVisible,
@@ -138,7 +138,7 @@ const updatedPassProps = { ...passProps, uniqueClassName };
   }
 );
 
-ModularWrapper.propTypes = {
+Modular_Wrapper.propTypes = {
   children: PropTypes.node.isRequired,
   isVisible: PropTypes.bool,
   gridColumn: PropTypes.string,
@@ -150,7 +150,7 @@ ModularWrapper.propTypes = {
   id: PropTypes.string,
 };
 
-ModularWrapper.defaultProps = {
+Modular_Wrapper.defaultProps = {
   isVisible: false, // Defaulting to false to avoid accidental renders.
   gridColumn: "auto",
   gridRow: "auto",
@@ -162,4 +162,4 @@ ModularWrapper.defaultProps = {
 };
 
 
-export default ModularWrapper;
+export default Modular_Wrapper;
