@@ -40,9 +40,12 @@ const Landing_Page = () => {
     { path: "/info/ReadMe", label: "ReadMe Info" },
   ];
 
+  const gridPositionTNavbar = { gridColumn: "5/38", gridRow:"1/4"};
+  const opacityTNavbar = 1;
+  const zIndexTNavbar = 2;
   return (
     <>
-      <T_Navbar links={T_Links} />
+      <T_Navbar links={T_Links} gridPosition={gridPositionTNavbar} opacity={opacityTNavbar} zIndex={zIndexTNavbar} />
       <L_Navbar links={L_links} />
       <Main_Content />
       <Media_Container />

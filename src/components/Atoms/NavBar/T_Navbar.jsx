@@ -1,36 +1,38 @@
 import "../../components_styles.css";
 import { Link } from "react-router-dom";
 import { Navbar, Nav } from "react-bootstrap";
+import ModularWrapper from "../../../../CsbR_components/Mod_Wrapper/Modular_Wrapper";
 // import "bootstrap/dist/css/bootstrap.min.css";
 import PropTypes from "prop-types";
 
 const T_Navbar = ({ links = [], children, gridPosition = {}, style=[] }) => {
   return (
-    <Navbar
-      className="t_NavBar"
-      bg="dark"
-      variant="dark"
-      style={{
-        zIndex: 2, // Ensure it's above other content
-        justifyContent: "center", // Center items
-        ...gridPosition,
-        ...style,
-      }}
-    >
-      <Nav
-      
+    <ModularWrapper>
+      <Navbar
+        className="t_NavBar"
+        bg="dark"
+        variant="dark"
         style={{
-          justifyContent: "center",
+          zIndex: 2, // Ensure it's above other content
+          justifyContent: "center", // Center items
+          ...gridPosition,
+          ...style,
         }}
       >
-        {links.map((link, index) => (
-          <Nav.Link key={index} as={Link} to={link.path} className="mx-3">
-            {link.label}
-          </Nav.Link>
-        ))}
-      </Nav>
-      {children}
-    </Navbar>
+        <Nav
+          style={{
+            justifyContent: "center",
+          }}
+        >
+          {links.map((link, index) => (
+            <Nav.Link key={index} as={Link} to={link.path} className="mx-3">
+              {link.label}
+            </Nav.Link>
+          ))}
+        </Nav>
+        {children}
+      </Navbar>
+    </ModularWrapper>
   );
 };
 T_Navbar.propTypes = {
