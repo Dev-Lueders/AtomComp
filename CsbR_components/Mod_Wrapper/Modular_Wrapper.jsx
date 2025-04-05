@@ -1,4 +1,4 @@
-//---------------------------VERSION 8 -----------------------------
+
 // ModularWrapper.jsx
 /// This component is a wrapper for modular components, providing grid layout and visibility control.
 /// It validates props, generates unique class names, and applies styles based on the provided properties.
@@ -22,13 +22,17 @@
 /// The component is built with documentation in mind, ensuring that it is well-documented and easy to understand for other developers.
 
 
-// need to implement the lock and key when lock and key system is created 
+// need to implement the lock and key when lock and key system is created
 //for now passing uniqueClasName later it will be the codex for unlocking and locking the components
+
+//---------------------------VERSION 8 -----------------------------
+
 import React, { Suspense } from "react";
 import PropTypes from "prop-types";
 
 // Utility function: Validate props and log warnings/errors.
 const validateProps = (props) => {
+  console.log("validateProps", props);
   const requiredProps = {
     isVisible: "boolean",
     gridColumn: "string",
@@ -41,6 +45,9 @@ const validateProps = (props) => {
 
   Object.entries(requiredProps).forEach(([prop, expectedType]) => {
     const value = props[prop];
+
+    console.log('validateProps', prop, expectedType, value);
+    console.log('validateProps', prop[prop], expectedType, value);
     if (value === undefined || value === null) {
       console.warn(
         `⚠️ Missing prop: "${prop}" in ModularWrapper. ClassName: "${
@@ -73,7 +80,9 @@ const generateUniqueClassName = ({
 // ModularWrapper: Wraps a component, validates its props, and applies grid styling.
 // eslint-disable-next-line react/display-name
 const Modular_Wrapper = React.memo(
-  ({
+  (
+    
+    {
     children,
     isVisible,
     gridColumn,
@@ -83,7 +92,15 @@ const Modular_Wrapper = React.memo(
     passProps,
     className,
     id,
-  }) => {
+  }, ) => {
+   const nucleon_Grid = {
+    display: "var(--PGD)",
+    gridTemplateColumns: "var(--GTC)",
+    gridTemplateRows: "var(--GTR)",
+    width: "var(--PGW)",
+    height: "var(--PGH)"
+  }
+    console.log("nucleon_Grid", nucleon_Grid);
     // Validate props with robust error handling.
     const validatedProps = validateProps({
       isVisible,
@@ -111,7 +128,7 @@ const Modular_Wrapper = React.memo(
 const updatedPassProps = { ...passProps, uniqueClassName };
         
     // If not visible, do not render.
-    if (!validatedProps.isVisible) return null;
+    if (!validatedProps.isVisible) return null, console.log(isVisible);
 
     // Style based on validated props.
     const style = {
@@ -119,8 +136,8 @@ const updatedPassProps = { ...passProps, uniqueClassName };
       gridRow: validatedProps.gridRow,
       zIndex: validatedProps.zIndex,
       opacity: validatedProps.opacity,
-      width: "100%", // Ensuring it takes full width within the grid cell
-      height: "100%", // Ensuring it takes full height within the grid cell
+      width: "var(--PGW)", // Ensuring consistency for all modular components
+      height: "var(--PGH)", // Ensuring it is consistent throughout  the application full height within the grid cell
     };
 
     return (
@@ -129,7 +146,8 @@ const updatedPassProps = { ...passProps, uniqueClassName };
           className={`${validatedProps.className} ${uniqueClassName}`}
           id={validatedProps.id}
                 style={style}
-            {...updatedPassProps} // Spread the updated props to the div
+          {...updatedPassProps}
+          {...nucleon_Grid}   
         >
           {children}
         </div>
@@ -151,7 +169,7 @@ Modular_Wrapper.propTypes = {
 };
 
 Modular_Wrapper.defaultProps = {
-  isVisible: false, // Defaulting to false to avoid accidental renders.
+  isVisible: false, // Defaulting to false to avoid accidental renders
   gridColumn: "auto",
   gridRow: "auto",
   zIndex: 1,

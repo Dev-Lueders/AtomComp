@@ -3,17 +3,7 @@ WIDTH, HIGHT, MARGIN, BORDER, PADDING...COLOR, TEXT ALIGNMENT, BACKGROUNDS, AND 
 top right bottom left
 */
 /* PAGE GRID: Full viewport width and height, 36 columns and rows */
-.Page_Grid {
-  display: grid;
-  grid-template-columns: repeat(36, 1fr);
-  grid-template-rows: repeat(36, 1fr);
-  gap: 1px;
-  width: 100vw;
-  height: 100vh;
-  border: 1px solid black;
-  background-color: blueviolet;
-  
-}
+
 
 /* MAIN CONTENT: Blue background, spans columns 6 to 28 and rows 4 to 35 */
 .Main_Content {

@@ -1,4 +1,4 @@
-//---------------------------VERSION 7 -----------------------------
+
 //ModulerWrapper.jsx
 // This component is a wrapper for modular components, providing grid layout and visibility control.
 // It validates props, generates unique class names, and applies styles based on the provided properties.
@@ -23,6 +23,8 @@
 //
 // need to implement the lock and key when lock and key system is created
 // for now passing uniqueClasName later it will be the codex for unlocking and locking the components 
+//---------------------------VERSION 7 -----------------------------
+
 import React, { useState, useEffect, Suspense } from "react";
 import PropTypes from "prop-types";
 
@@ -50,8 +52,8 @@ const Page_Grid = ({
     const adjustPosition = (newPosition) => {
         if (detectCollision(newPosition)) {
             // Adjust zIndex and opacity for the colliding component
-            newPosition.zIndex = (newPosition.zIndex || 1) - 0.0025;
-            newPosition.opacity = (newPosition.opacity || 1) - 0.0001;
+            newPosition.zIndex = (newPosition.zIndex || 1) - 0.0025;   //adjust for "ghosts"
+            newPosition.opacity = (newPosition.opacity || 1) - 0.0001;  //adjust for "ghosts"
         }
         setGridPositions((prevPositions) => [...prevPositions, newPosition]);
     };

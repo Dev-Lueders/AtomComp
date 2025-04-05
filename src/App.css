@@ -1,6 +1,6 @@
 :root{
-    --grid-columns:var(--grid-columns)
-    --grid-rows:var(--grid-rows)
-    --grid-gap:
+    --grid-columns:var(--grid-columns);
+    --grid-rows:var(--grid-rows);
+    --grid-gap: var(--grid-gap);
 
 }
